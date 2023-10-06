@@ -204,7 +204,7 @@ export function Location({information = [], onUploadSubmit}) {
             if(!map.current) {
                 const mapContainer = document.getElementById('map');
                 const mapOption = {
-                    center: new window.kakao.maps.LatLng(null, null), // 지도의 중심좌표
+                    center: new window.kakao.maps.LatLng(36.362530384643, 127.34486028546), // 지도의 중심좌표
                     level: 3, // 지도의 확대 레벨
                 };
                 map.current = new window.kakao.maps.Map(mapContainer, mapOption);
