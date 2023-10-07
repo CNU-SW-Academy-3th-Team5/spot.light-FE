@@ -430,14 +430,16 @@ export function Location({information = [], onUploadSubmit}) {
     const handleImageChange = (event) => {
         const imageFile = event.target.files[0];
 
-        if (imageFile.type.startsWith('image/')) {
-            setSelectedImage(imageFile);
-            const imgUrl = URL.createObjectURL(imageFile);
-            setImageUrl(imgUrl); // 이미지 URL을 상태에 저장
-            setIsIconVisible(false);
-            setIsTextVisible(false);
-        } else {
-            alert('이미지 파일을 드래그 앤 드롭하세요.');
+        if (imageFile !== undefined) {
+            if (imageFile.type.startsWith('image/')) {
+                setSelectedImage(imageFile);
+                const imgUrl = URL.createObjectURL(imageFile);
+                setImageUrl(imgUrl); // 이미지 URL을 상태에 저장
+                setIsIconVisible(false);
+                setIsTextVisible(false);
+            } else {
+                alert('이미지 파일을 드래그 앤 드롭하세요.');
+            }
         }
     };
 
