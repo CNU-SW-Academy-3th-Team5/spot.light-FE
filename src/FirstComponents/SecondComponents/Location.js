@@ -439,7 +439,16 @@ export function Location({information = [], onUploadSubmit}) {
                 setIsTextVisible(false);
             } else {
                 alert('이미지 파일을 드래그 앤 드롭하세요.');
+                setImageUrl(null);
+                setIsIconVisible(true);
+                setIsTextVisible(true);
+                setSelectedImage(null);
             }
+        } else {
+            setImageUrl(null);
+            setIsIconVisible(true);
+            setIsTextVisible(true);
+            setSelectedImage(null);
         }
     };
 
@@ -455,7 +464,6 @@ export function Location({information = [], onUploadSubmit}) {
             setIsIconVisible(true);
             setIsTextVisible(true);
             setSelectedImage(null);
-            fileInputRef.current.value = null;
         }
     }
 
