@@ -445,8 +445,11 @@ export function Location({information = [], onUploadSubmit}) {
         if (imageFile !== undefined) {
             if (imageFile.type.startsWith('image/')) {
                 setSelectedImage(imageFile);
-                const imgUrl = URL.createObjectURL(imageFile);
-                setImageUrl(imgUrl); // 이미지 URL을 상태에 저장
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    setImageUrl(e.target.result);
+                };
+                reader.readAsDataURL(imageFile);
                 setIsIconVisible(false);
                 setIsTextVisible(false);
             } else {
