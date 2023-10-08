@@ -430,14 +430,14 @@ export function Location({information = [], onUploadSubmit}) {
     const handleImageChange = (event) => {
         const imageFile = event.target.files[0];
 
-        if (navigator.userAgent.match(/Android/i)) {
+        if (navigator.userAgent.match(/iPhone/i)) {
+            alert('iPhone');
+        } else if (navigator.userAgent.match(/iPad/i)) {
+            alert('iPad');
+        } else if (navigator.userAgent.match(/iPod/i)) {
+            alert('iPod');
+        } else if (navigator.userAgent.match(/Android/i)) {
             alert('Android');
-        } else if (navigator.userAgent.match(/iOS/i)) {
-            alert('iOS');
-        } else if (navigator.userAgent.match(/Windows/i)) {
-            alert('Windows');
-        } else if (navigator.userAgent.match(/Mac/i)) {
-            alert('macOS');
         } else {
             alert('알 수 없음');
         }
