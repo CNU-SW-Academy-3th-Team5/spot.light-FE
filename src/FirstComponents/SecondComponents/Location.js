@@ -264,7 +264,13 @@ export function Location({information = [], onUploadSubmit}) {
 
     let handleSidePanelTouchMove = (event) => {
         if (parseFloat(document.querySelector('#sidepanel').style.height) === 58 && isBiggestFirstAndNotTop) {
-            if (document.querySelector('#sidepanel').scrollTop === 0) {
+            if (document.querySelector('#sidepanel').scrollTop > 0) {
+                let touchCurrentY = event.touches[0].clientY;
+                const scrollTop = document.querySelector('#sidepanel').scrollTop;
+                deltaY = touchCurrentY - touchStartY;
+                document.querySelector('#sidepanel').scrollTop = scrollTop - deltaY;
+                touchStartY = touchCurrentY;
+            } else if (document.querySelector('#sidepanel').scrollTop === 0) {
                 let touchCurrentY = event.touches[0].clientY;
                 deltaY = touchCurrentY - touchStartY;
 
