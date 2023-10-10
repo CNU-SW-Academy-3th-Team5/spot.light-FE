@@ -530,16 +530,16 @@ export function Location({information = [], onUploadSubmit}) {
         };
     }, []);
 
-    useEffect(() => {
-        const handleResize = () => {
-            window.location.reload();
-        };
-        window.addEventListener('resize', handleResize);
-
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
+    // useEffect(() => {
+    //     const handleResize = () => {
+    //         window.location.reload();
+    //     };
+    //     window.addEventListener('resize', handleResize);
+    //
+    //     return () => {
+    //         window.removeEventListener('resize', handleResize);
+    //     };
+    // }, []);
 
     // useEffect(() => {
     //     if (map.current === null) {
