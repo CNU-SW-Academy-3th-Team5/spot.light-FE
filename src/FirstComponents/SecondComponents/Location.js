@@ -565,7 +565,7 @@ export function Location({information = [], onUploadSubmit}) {
             <div id="map" style={mapStyle}></div>
             <div style={titleStyle}>Spot.light</div>
             <div style={searchStyle}>
-                <input type="text" style={myInputStyle} placeholder="Search for places" title="Type in a name" />
+                <input type="text" style={myInputStyle} placeholder="Search for places" />
             </div>
             <div id="sidepanel" style={sidepanelStyle} onTouchStart={handleSidePanelTouchStart} onTouchMove={handleSidePanelTouchMove} onTouchEnd={handleSidePanelTouchEnd}>
                 <div style={fixedContentStyle}>
