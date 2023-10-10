@@ -517,11 +517,23 @@ export function Location({information = [], onUploadSubmit}) {
         fileInputRef.current.click();
     };
 
-    const handleResize = () => {
-        window.location.reload();
-    };
+    useEffect(() => {
+        const handleTouchMove = (e) => {
+            if (window.scrollY === 0) {
+                e.preventDefault();
+            }
+        };
+        document.addEventListener('touchmove', handleTouchMove, { passive: false });
+
+        return () => {
+            document.removeEventListener('touchmove', handleTouchMove);
+        };
+    }, []);
 
     useEffect(() => {
+        const handleResize = () => {
+            window.location.reload();
+        };
         window.addEventListener('resize', handleResize);
 
         return () => {
