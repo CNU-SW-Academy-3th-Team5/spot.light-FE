@@ -2,6 +2,7 @@ import React, {useEffect, useRef, useState} from 'react'
 import {Helmet, HelmetProvider} from "react-helmet-async";
 import {LocationImage} from "./ThirdComponents/LocationImage";
 import './Location.css';
+import ExifReader from 'exifreader';
 
 export function Location({information = [], onUploadSubmit}) {
     const mapStyle = {
@@ -197,6 +198,8 @@ export function Location({information = [], onUploadSubmit}) {
     const [isIconVisible, setIsIconVisible] = useState(true);
     const [isTextVisible, setIsTextVisible] = useState(true);
     const [imageUrl, setImageUrl] = useState(null);
+    const [isLatitudeVisible, setIsLatitudeVisible] = useState(false);
+    const [isLongitudeVisible, setIsLongitudeVisible] = useState(false);
     // const [isVisible, setIsVisible] = useState(true);
 
     useEffect(() => {
@@ -428,30 +431,55 @@ export function Location({information = [], onUploadSubmit}) {
     }
 
     const handleImageChange = (event) => {
-        const imageFile = event.target.files[0];
+        // if (navigator.userAgent.match(/iPhone/i)) {
+        //     alert('iPhone');
+        // } else if (navigator.userAgent.match(/iPad/i)) {
+        //     alert('iPad');
+        // } else if (navigator.userAgent.match(/iPod/i)) {
+        //     alert('iPod');
+        // } else if (navigator.userAgent.match(/Android/i)) {
+        //     alert('Android');
+        // } else {
+        //     alert('알 수 없음');
+        // }
 
-        if (navigator.userAgent.match(/iPhone/i)) {
-            alert('iPhone');
-        } else if (navigator.userAgent.match(/iPad/i)) {
-            alert('iPad');
-        } else if (navigator.userAgent.match(/iPod/i)) {
-            alert('iPod');
-        } else if (navigator.userAgent.match(/Android/i)) {
-            alert('Android');
-        } else {
-            alert('알 수 없음');
-        }
+        const imageFile = event.target.files[0];
 
         if (imageFile !== undefined) {
             if (imageFile.type.startsWith('image/')) {
-                setSelectedImage(imageFile);
                 const reader = new FileReader();
-                reader.onload = (e) => {
-                    setImageUrl(e.target.result);
+                reader.onload = async (fileEvent) => {
+                    try {
+                        const fileData = fileEvent.target.result;
+                        const exifData = ExifReader.load(fileData);
+                        const latitude = exifData.GPSLatitude;
+                        const longitude = exifData.GPSLongitude;
+
+                        if (!isNaN(latitude.description) && !isNaN(longitude.description)) {
+                            setIsLatitudeVisible(true);
+                            setIsLongitudeVisible(true);
+                            const imageReader = new FileReader();
+                            imageReader.onload = (e) => {
+                                setImageUrl(e.target.result);
+                                setIsIconVisible(false);
+                                setIsTextVisible(false);
+                                setSelectedImage(imageFile);
+                            };
+                            imageReader.readAsDataURL(imageFile);
+                        } else {
+                            alert('위치 정보를 찾을 수 없습니다.');
+                            setIsLatitudeVisible(false);
+                            setIsLongitudeVisible(false);
+                            setImageUrl(null);
+                            setIsIconVisible(true);
+                            setIsTextVisible(true);
+                            setSelectedImage(null);
+                        }
+                    } catch (error) {
+                        console.error('EXIF 데이터를 로드하는 중 오류가 발생했습니다.', error);
+                    }
                 };
-                reader.readAsDataURL(imageFile);
-                setIsIconVisible(false);
-                setIsTextVisible(false);
+                reader.readAsArrayBuffer(imageFile);
             } else {
                 alert('이미지 파일을 드래그 앤 드롭하세요.');
                 setImageUrl(null);
