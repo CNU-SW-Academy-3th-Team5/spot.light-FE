@@ -198,8 +198,6 @@ export function Location({information = [], onUploadSubmit}) {
     const [isIconVisible, setIsIconVisible] = useState(true);
     const [isTextVisible, setIsTextVisible] = useState(true);
     const [imageUrl, setImageUrl] = useState(null);
-    const [isLatitudeVisible, setIsLatitudeVisible] = useState(false);
-    const [isLongitudeVisible, setIsLongitudeVisible] = useState(false);
     // const [isVisible, setIsVisible] = useState(true);
 
     useEffect(() => {
@@ -455,21 +453,25 @@ export function Location({information = [], onUploadSubmit}) {
                         const latitude = exifData.GPSLatitude;
                         const longitude = exifData.GPSLongitude;
 
-                        if (!isNaN(latitude.description) && !isNaN(longitude.description)) {
-                            setIsLatitudeVisible(true);
-                            setIsLongitudeVisible(true);
-                            const imageReader = new FileReader();
-                            imageReader.onload = (e) => {
-                                setImageUrl(e.target.result);
-                                setIsIconVisible(false);
-                                setIsTextVisible(false);
-                                setSelectedImage(imageFile);
-                            };
-                            imageReader.readAsDataURL(imageFile);
+                        if(latitude && longitude) {
+                            if (!isNaN(latitude.description) && !isNaN(longitude.description)) {
+                                const imageReader = new FileReader();
+                                imageReader.onload = (e) => {
+                                    setImageUrl(e.target.result);
+                                    setIsIconVisible(false);
+                                    setIsTextVisible(false);
+                                    setSelectedImage(imageFile);
+                                };
+                                imageReader.readAsDataURL(imageFile);
+                            } else {
+                                alert('위치 정보를 찾을 수 없습니다.');
+                                setImageUrl(null);
+                                setIsIconVisible(true);
+                                setIsTextVisible(true);
+                                setSelectedImage(null);
+                            }
                         } else {
                             alert('위치 정보를 찾을 수 없습니다.');
-                            setIsLatitudeVisible(false);
-                            setIsLongitudeVisible(false);
                             setImageUrl(null);
                             setIsIconVisible(true);
                             setIsTextVisible(true);
@@ -481,13 +483,14 @@ export function Location({information = [], onUploadSubmit}) {
                 };
                 reader.readAsArrayBuffer(imageFile);
             } else {
-                alert('이미지 파일을 드래그 앤 드롭하세요.');
+                alert('이미지 파일을 선택하세요.');
                 setImageUrl(null);
                 setIsIconVisible(true);
                 setIsTextVisible(true);
                 setSelectedImage(null);
             }
         } else {
+            alert('이미지 파일을 선택하세요.');
             setImageUrl(null);
             setIsIconVisible(true);
             setIsTextVisible(true);
