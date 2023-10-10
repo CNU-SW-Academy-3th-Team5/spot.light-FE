@@ -26,7 +26,7 @@ export function FindId(){
     };
     const loginBottomStyle = {
         position: 'fixed',
-        top: '93vh',
+        top: '85vh',
         left: '71vw',
         fontSize: '2vh',
         display: 'flex',

@@ -19,14 +19,14 @@ export function FindPassword(){
     };
     const passwordFormStyle = {
         position: 'fixed',
-        top: '70vh',
+        top: '60vh',
         left: '50%',
         transform: 'translate(-50%)',
         fontSize: '3vh'
     };
     const loginBottomStyle = {
         position: 'fixed',
-        top: '93vh',
+        top: '85vh',
         left: '71vw',
         fontSize: '2vh',
         display: 'flex',
