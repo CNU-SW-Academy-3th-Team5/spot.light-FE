@@ -239,7 +239,9 @@ export function Location({information = [], onUploadSubmit}) {
         }
 
         window.kakao.maps.load(() => initMap());
+    }, [information]);
 
+    useEffect(() => {
         const navbar_ref_style = window.getComputedStyle(navbar_ref.current);
         document.querySelector('#sidepanel').style.marginBottom = navbar_ref_style.getPropertyValue("height");
         document.querySelector('#sidepanel').style.height = "25vh";
@@ -250,7 +252,18 @@ export function Location({information = [], onUploadSubmit}) {
             height: `${gap}px`,
         };
         setEditStyle(newEditStyle);
-    }, [information]);
+    }, []);
+
+
+
+
+
+
+
+
+
+
+
 
     let handleSidePanelTouchStart = (event) => {
         touchStartY = event.touches[0].clientY;
