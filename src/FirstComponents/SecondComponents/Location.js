@@ -249,6 +249,27 @@ export function Location({information = [], onUploadSubmit}) {
                 });
             });
             clusterer.current.addMarkers(markers.current);
+
+
+
+
+
+
+
+
+
+
+            swLatLng.current = map.current.getBounds().getSouthWest();
+            neLatLng.current = map.current.getBounds().getNorthEast();
+
+
+
+
+
+
+
+
+
         }
 
         window.kakao.maps.load(() => initMap());
