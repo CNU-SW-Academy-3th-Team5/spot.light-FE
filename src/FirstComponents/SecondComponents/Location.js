@@ -205,7 +205,7 @@ export function Location({information = [], onUploadSubmit}) {
 
 
     const swLatLng = useRef();
-
+    const neLatLng = useRef();
 
 
 
