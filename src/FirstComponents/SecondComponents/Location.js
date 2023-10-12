@@ -198,6 +198,19 @@ export function Location({information = [], onUploadSubmit}) {
     const [isIconVisible, setIsIconVisible] = useState(true);
     const [isTextVisible, setIsTextVisible] = useState(true);
     const [imageUrl, setImageUrl] = useState(null);
+
+
+
+
+
+
+    const swLatLng = useRef();
+
+
+
+
+
+
     // const [isVisible, setIsVisible] = useState(true);
 
     useEffect(() => {
@@ -253,17 +266,6 @@ export function Location({information = [], onUploadSubmit}) {
         };
         setEditStyle(newEditStyle);
     }, []);
-
-
-
-
-
-
-
-
-
-
-
 
     let handleSidePanelTouchStart = (event) => {
         touchStartY = event.touches[0].clientY;
