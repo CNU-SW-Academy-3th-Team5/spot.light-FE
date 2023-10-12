@@ -299,7 +299,8 @@ export function Location({information = [], onUploadSubmit}) {
 
 
     useEffect(() => {
-
+        console.log(swLatLng.current.getLng());
+        console.log(neLatLng.current.getLng());
     }, [swLatLng.current, neLatLng.current]);
 
 
