@@ -288,6 +288,18 @@ export function Location({information = [], onUploadSubmit}) {
         setEditStyle(newEditStyle);
     }, []);
 
+
+
+
+
+    useEffect(() => {
+
+    }, [swLatLng.current, neLatLng.current]);
+
+
+
+
+
     let handleSidePanelTouchStart = (event) => {
         touchStartY = event.touches[0].clientY;
 
