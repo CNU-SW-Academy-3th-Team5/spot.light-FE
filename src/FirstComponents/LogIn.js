@@ -3,6 +3,8 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import naverIcon from './naver.png';
 import googleIcon from './google.png';
 import {Link} from "react-router-dom";
+import kakaoIcon from './kakao_login.png'
+
 
 export function LogIn(){
     const titleStyle = {
@@ -121,33 +123,8 @@ export function LogIn(){
                 </Helmet>
             </HelmetProvider>
             <div style={titleStyle}>Spot.light</div>
-            <div style={formStyle}>
-                <form>
-                    <label>
-                        <p style={loginTextStyle}>email</p>
-                        <input type="email" id="loginEmail" style={loginStyle} name="email" value="" />
-                    </label>
-                    <label>
-                        <p style={loginTextStyle}>password</p>
-                        <input type="password" id="loginPassword" style={loginStyle} name="password" value="" />
-                    </label>
-                    <br/><br/>
-                    <input type="submit" style={loginSubmitStyle} value="login" />
-                </form>
-            </div>
-            <div style={wayStyle}>
-                <div style={wayDivStyle}><Link to="/findid" style={wayDivAStyle}>아이디 찾기</Link></div>
-                <div style={wayDivStyle}><Link to="/findpassword" style={wayDivAStyle}>비밀번호 찾기</Link></div>
-                <div style={wayDivStyle}><Link to="/signup" style={wayDivAStyle}>회원가입</Link></div>
-            </div>
-            <div style={lineContainerStyle}>
-                <div style={line1Style}></div>
-                <div style={orStyle}>or</div>
-                <div style={line2Style}></div>
-            </div>
-            <div style={linkedLoginStyle}>
-                <div style={linkedLoginDivStyle}><img style={googleStyle} src={googleIcon} alt="구글 아이콘" /></div>
-                <div style={linkedLoginDivStyle}><img style={naverStyle} src={naverIcon} alt="네이버 아이콘" /></div>
+            <div>
+                <a href = "https://kauth.kakao.com/oauth/authorize?client_id=6d45b34bde95e3af7ac2fb1fc9ea6552&redirect_uri=http://localhost:8080/api/v1/auth&response_type=code"><img src = {kakaoIcon}/></a>
             </div>
         </>
     );
