@@ -1,0 +1,105 @@
+.title {
+    position: fixed;
+    top: 15vh;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: transparent;
+    font-size: 3vh;
+    font-weight: bold;
+}
+
+.form {
+    position: fixed;
+    top: 23vh;
+    left: 50%;
+    transform: translate(-50%);
+    font-size: 2vh;
+}
+
+.login {
+    width: 80vw;
+    height: auto;
+    margin: 0;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    padding: 2vh 4vw 2vh 4vw;
+    font-size: 2vh;
+    background-color: rgb(128, 128, 128, 0.5);
+}
+
+.loginText {
+    margin: 1vh 0;
+}
+
+.way {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    top: 60vh;
+}
+
+.way div {
+    text-align: center;
+    padding: 2vh 3vw;
+    font-size: 1vh;
+}
+
+.way div a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.lineContainer {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    top: 67vh;
+}
+
+.linkedLogin {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    top: 73vh;
+}
+
+.linkedLogin div {
+    margin: 2vh auto; /* 수평 가운데 정렬을 위해 margin-left 및 margin-right를 auto로 설정 */
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 8vh;
+    height: 8vh;
+    display: flex; /* 내부 요소를 수평 정렬하기 위해 flex 컨테이너로 설정 */
+    justify-content: center; /* 내부 요소를 수평으로 가운데 정렬 */
+    align-items: center; /* 내부 요소를 수직으로 가운데 정렬 */
+}
+
+.logInButton {
+    width: 25vw;
+    height: auto;
+    margin: 0 auto; 
+    display: block; 
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 1vh 2vw 1vh 2vw;
+    font-size: 2vh;
+    background-color: black;
+    color: white;
+}
+
+.line {
+    width: 33vw;
+    height: 1px;
+    background-color: rgb(128, 128, 128, 0.5);
+}
+
+.or {
+    font-size: 2vh;
+    margin: 0 7vw;
+}

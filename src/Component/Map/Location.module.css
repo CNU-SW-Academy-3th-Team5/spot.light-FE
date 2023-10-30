@@ -1,0 +1,71 @@
+.sidepanel::-webkit-scrollbar {
+    display: none;
+}
+
+.formContainer {
+    padding: 20px;
+}
+
+.submitButton {
+    width: 25vw;
+    height: auto;
+    display: block; 
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 1vh 2vw 1vh 2vw;
+    font-size: 2vh;
+    background-color: black;
+    color: white;
+    margin-left: auto;
+}
+
+.fileUpload {
+    /*border: 1px solid gray;*/
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 3px 5px 5px lightgray;
+}
+
+.lineContainer {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.line {
+    width: 33vw;
+    height: 1px;
+    background-color: rgb(128, 128, 128, 0.5);
+}
+
+.or {
+    font-size: 2vh;
+    margin: 0 7vw;
+}
+
+.addressInputContainer {
+    display: flex;
+    align-items: center; 
+}
+
+.addressLabel {
+    font-weight: bold;
+}
+
+.addressInput {
+    border: none;
+}
+
+.tipInputContainer {
+    display: flex;
+    align-items: flex-start;
+}
+
+.tipLabel {
+    font-weight: bold;
+}
+
+.tipInput {
+    border: none;
+}

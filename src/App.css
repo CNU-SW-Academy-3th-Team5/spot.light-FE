@@ -1,0 +1,26 @@
+body {
+  background: #ddd;
+}
+
+.summary {
+  background-color: #ddd;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  padding: 4vh;
+  color: rgb(65, 65, 65)
+}
+
+@media (max-width: 767px) {
+  .summary {
+    border-top-right-radius: unset;
+    border-bottom-left-radius: 1rem
+  }
+}
+
+img {
+  width: 3.5rem
+}
+
+hr {
+  margin-top: 1.25rem
+}

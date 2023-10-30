@@ -1,0 +1,44 @@
+.ul {
+    list-style-type: none;
+}
+
+.li {
+    list-style-type: none;
+}
+
+.name {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+.email {
+    margin-top: 0px;
+}
+
+.imageContainer {
+    width: 100%; 
+    max-width: 100%; 
+    margin-top: 0px;
+}
+  
+.responsiveImage {
+    width: 100%; 
+    height: auto; 
+}
+
+.likeButton {
+    border: none;
+    background-color: white;
+    margin-left: 10px;
+}
+
+.bookmarkButton{
+    margin-left: 250px;
+    border: none;
+    background-color: white;
+}
+
+.largeIcon {
+    font-size: 30px; 
+}

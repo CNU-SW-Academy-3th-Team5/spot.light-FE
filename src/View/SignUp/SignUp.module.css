@@ -1,0 +1,43 @@
+.title {
+    position: fixed;
+    top: 10vh;
+    left: 7vw;
+    font-size: 2.5vh;
+    font-weight: bold;
+}
+
+.form {
+    position: fixed;
+    top: 20vh;
+    left: 50%;
+    transform: translate(-50%);
+    font-size: 2vh;
+}
+
+.signUp {
+    width: 80vw;
+    height: auto;
+    margin: 0;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    padding: 2vh 4vw 2vh 4vw;
+    font-size: 2vh;
+    background-color: rgb(128, 128, 128, 0.5);
+}
+
+.signUpText {
+    margin: 1vh 0;
+}
+
+.signUpButton {
+    width: 25vw;
+    height: auto;
+    margin: 0 auto; 
+    display: block; 
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 1vh 2vw 1vh 2vw;
+    font-size: 2vh;
+    background-color: black;
+    color: white;
+}
