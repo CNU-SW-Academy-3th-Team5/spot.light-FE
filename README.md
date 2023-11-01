@@ -1,3 +1,3 @@
 # SPOT.LIGHT-FE
 
-![Uploading KakaoTalk_20231031_115028529.png…]()
+<img src="/KakaoTalk_20231031_115028529.png">
